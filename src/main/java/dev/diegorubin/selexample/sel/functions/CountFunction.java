@@ -5,15 +5,13 @@ import dev.diegorubin.selexample.sel.ExampleExecutionData;
 
 import lang.sel.annotations.Function;
 import lang.sel.commons.results.IntegerResult;
-
+import lang.sel.commons.results.TypedResult;
 import lang.sel.interfaces.AbstractFunction;
-import lang.sel.interfaces.OperationResult;
-import lang.sel.interfaces.OperatorArgument;
 
 @Function(value = "count", numberOfArguments = "0")
 public class CountFunction extends AbstractFunction {
 
-    public OperationResult execute(OperatorArgument... args) {
+    public TypedResult execute(TypedResult... args) {
         Message message = ((ExampleExecutionData) executionData).getMessage();
 
         return new IntegerResult(Long.valueOf(message.getContent().length()));
